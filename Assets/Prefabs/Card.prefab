@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5723723860043569132}
   - component: {fileID: 5723723860043569131}
   - component: {fileID: 5723723860043569128}
+  - component: {fileID: -2899742431399397401}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -276,3 +277,15 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &-2899742431399397401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480614265724567335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa2f6cdc130f29458b4bc130575b433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
