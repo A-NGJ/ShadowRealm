@@ -22,7 +22,7 @@ public class CardBehaviour : MonoBehaviour
   void Update()
   {
     // Check if the button is being held down
-    if (pinchAnimationAction.action.ReadValue<float>() > 0)
+    if (pinchAnimationAction.action.ReadValue<float>() > 0.01)
     {
       isHoldingButton = true;
       // Debug.Log("It is Holding the Button" + isHoldingButton);
@@ -33,7 +33,7 @@ public class CardBehaviour : MonoBehaviour
       // Debug.Log("It is not Holding the button" + isHoldingButton);
     }
 
-
+    Debug.Log(isHoldingButton);
 
     if (!isBeingHeld && Vector3.Distance(transform.position, originalPosition) > 0.1f)
     {

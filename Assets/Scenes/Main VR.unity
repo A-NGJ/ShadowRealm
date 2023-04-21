@@ -2560,8 +2560,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2899742431399397401, guid: f99572b5d92480447a2097dea2a74740,
         type: 3}
+      propertyPath: pinchAnimationAction.m_Reference
+      value: 
+      objectReference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: -2899742431399397401, guid: f99572b5d92480447a2097dea2a74740,
+        type: 3}
       propertyPath: pinchAnimationAction.m_Action.m_Id
       value: f3fac202-2c16-47d0-890a-373ded606c95
+      objectReference: {fileID: 0}
+    - target: {fileID: -2899742431399397401, guid: f99572b5d92480447a2097dea2a74740,
+        type: 3}
+      propertyPath: pinchAnimationAction.m_UseReference
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2899742431399397401, guid: f99572b5d92480447a2097dea2a74740,
         type: 3}

@@ -289,3 +289,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa2f6cdc130f29458b4bc130575b433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pinchAnimationAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Pinch Animation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 8327c08c-e8e7-4678-93a3-b55f650503ae
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
