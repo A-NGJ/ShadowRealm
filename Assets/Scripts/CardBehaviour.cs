@@ -10,6 +10,9 @@ public class CardBehaviour : MonoBehaviour
   private bool isBeingHeld = false;
   private bool isHoldingButton = false;
   private float moveSpeed = 5.0f;
+  private Vector3 spacer = new Vector3(0f, 0.1f, 0f);
+  public InputActionProperty gripAnimationAction;
+
   public InputActionProperty pinchAnimationAction;
 
   // Start is called before the first frame update
@@ -21,32 +24,64 @@ public class CardBehaviour : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+
     // Check if the button is being held down
-    if (pinchAnimationAction.action.ReadValue<float>() > 0.01)
+    if (gripAnimationAction.action.ReadValue<float>() > 0.01)
     {
       isHoldingButton = true;
-      // Debug.Log("It is Holding the Button" + isHoldingButton);
     }
     else
     {
       isHoldingButton = false;
-      // Debug.Log("It is not Holding the button" + isHoldingButton);
     }
 
     Debug.Log(isHoldingButton);
 
-    if (!isBeingHeld && Vector3.Distance(transform.position, originalPosition) > 0.1f)
+    if (Vector3.Distance(transform.position, originalPosition) > 0.1f)
     {
-      transform.position = Vector3.MoveTowards(transform.position, originalPosition, moveSpeed * Time.deltaTime);
+      if (!isBeingHeld && !isHoldingButton)
+      {
+        transform.rotation = Quaternion.identity;
+        if (transform.position.y < 1)
+        {
+          transform.position = Vector3.MoveTowards(transform.position + spacer, originalPosition, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+          transform.position = Vector3.MoveTowards(transform.position, originalPosition, moveSpeed * Time.deltaTime);
+        }
+
+        isBeingHeld = false;
+      }
     }
+
+    if (!isBeingHeld && !isHoldingButton)
+    {
+      if (Vector3.Distance(transform.position, originalPosition) > 0.3f)
+      {
+        transform.rotation = Quaternion.identity;
+        transform.position = Vector3.MoveTowards(transform.position + spacer, originalPosition, moveSpeed * Time.deltaTime);
+      }
+
+    }
+
+
   }
 
   void OnTriggerEnter(Collider other)
   {
+    Debug.Log("colliding");
+
+    if (isHoldingButton)
+    {
+      Debug.Log("We are grabbing the card " + isHoldingButton);
+    }
+
 
     // If the user is pressing the button and there's a collision between hand and object, then the card must be held
     if (other.gameObject.CompareTag("Hand") && isHoldingButton)
     {
+      Debug.Log("It is working");
       isBeingHeld = true;
     }
 
