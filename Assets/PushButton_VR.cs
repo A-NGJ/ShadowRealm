@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
-public class PushButton : MonoBehaviour
+public class PushButton_VR : MonoBehaviour
 {
     [SerializeField] private float threshold = 0.1f;
     [SerializeField] private float deadzone = 0.025f;
@@ -55,3 +55,4 @@ public class PushButton : MonoBehaviour
         Debug.Log("Released"); 
     }
 }
+
