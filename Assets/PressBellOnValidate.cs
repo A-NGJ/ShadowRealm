@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PressBellOnValidate : MonoBehaviour
 {
-    public float pushForce = 500;
+    public float pushForce = 20;
     // Start is called before the first frame update
     void Start()
     {
