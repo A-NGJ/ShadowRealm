@@ -42,6 +42,8 @@ public class CardBehaviour : MonoBehaviour
       isHoldingButton = false;
     }
 
+    //Debug.Log("The card is being held?"+isBeingHeld);
+
     // Check if the card is far away from the table
     if (Vector3.Distance(transform.position, originalPosition) > 0.1f)
     {
