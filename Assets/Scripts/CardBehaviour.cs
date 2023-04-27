@@ -57,7 +57,7 @@ public class CardBehaviour : MonoBehaviour
 
         // Check the distance with the last placeholder the user has interacted with. 
         // If the distance with that placeholder is below x move the card towards the placeholder.
-        if (Vector3.Distance(transform.position, placeHolderPosition) < 0.1f) 
+        if (Vector3.Distance(transform.position, placeHolderPosition) < 1.0f) 
         {
             transform.position = Vector3.MoveTowards(transform.position, placeHolderPosition, moveSpeed * Time.deltaTime);
         }
