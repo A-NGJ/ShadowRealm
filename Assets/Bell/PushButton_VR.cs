@@ -44,8 +44,9 @@ public class PushButton_VR : MonoBehaviour
     {
         _isPressed = true;
         onPressed.Invoke();
+        // Invoke the EndTurn method on the GameManager
+        GameObject.Find("GameManager").GetComponent<GameManager>().EndTurn();
         Debug.Log("Pressed"); 
-
     }
 
     private void Released()
