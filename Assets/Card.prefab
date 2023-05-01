@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1503027013863647702}
   m_Layer: 0
   m_Name: Card
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,3 +342,5 @@ MonoBehaviour:
     m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   placeHolderPosition: {x: 0, y: 0, z: 0}
+  opponentPlaceHolderPosition: {x: 0, y: 0, z: 0}
+  HandPlaceHolderPosition: {x: 0, y: 0, z: 0}

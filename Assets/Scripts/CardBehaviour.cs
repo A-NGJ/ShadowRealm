@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class CardBehaviour : MonoBehaviour
 {
   private Vector3 originalPosition;
   private Vector3 Movementpostion;
-
-  private bool isBeingHeld = false;
+  private bool cardplayed = false;
   private bool isHoldingButton = false;
 
   private float moveSpeed = 5.0f;
   private Vector3 spacer = new Vector3(0f, 0.1f, 0f);
+  private Quaternion originalRotation = Quaternion.Euler(0, 0, 0);
   public InputActionProperty gripAnimationAction_left;
   public InputActionProperty gripAnimationAction_right;
 
@@ -20,18 +21,21 @@ public class CardBehaviour : MonoBehaviour
   public InputActionProperty pinchAnimationAction_right;
 
   public Vector3 placeHolderPosition;
+  public Vector3 opponentPlaceHolderPosition;
+  public Vector3 HandPlaceHolderPosition;
+  private XRGrabInteractable grabInteractable;
 
 
   // Start is called before the first frame update
   void Start()
   {
     originalPosition = transform.position;
+    grabInteractable = GetComponent<XRGrabInteractable>();
   }
 
   // Update is called once per frame
   void Update()
   {
-
     // Check if the button is being held down
     if (gripAnimationAction_left.action.ReadValue<float>() > 0.01 || gripAnimationAction_right.action.ReadValue<float>() > 0.01)
     {
@@ -42,77 +46,65 @@ public class CardBehaviour : MonoBehaviour
       isHoldingButton = false;
     }
 
-    //Debug.Log("The card is being held?"+isBeingHeld);
-
     // Check if the card is far away from the table
     if (Vector3.Distance(transform.position, originalPosition) > 0.1f)
     {
-        // Check if the user is holding the button
-        // TODO: Check if it is necessary isBeingHeld
-        if (!isBeingHeld && !isHoldingButton)
-        {
-        
+      // Check if the user is holding the button
+      if (!isHoldingButton) 
+      {
         // Fix the rotation of the card so it doesn't collide with the table in a weird way.
-        transform.rotation = Quaternion.identity;
+        transform.rotation = originalRotation;
 
         // Check the distance with the last placeholder the user has interacted with. 
         // If the distance with that placeholder is below x move the card towards the placeholder.
-        if (Vector3.Distance(transform.position, placeHolderPosition) < 1.0f) 
+        if (Vector3.Distance(transform.position, placeHolderPosition) < 0.1f && !cardplayed)
         {
-            transform.position = Vector3.MoveTowards(transform.position, placeHolderPosition, moveSpeed * Time.deltaTime);
+          // Debug.Log("Moving towards placeholder " + placeHolderPosition);
+          transform.position = Vector3.MoveTowards(transform.position, placeHolderPosition, moveSpeed * Time.deltaTime);
+          cardplayed = true;
+          grabInteractable.enabled = false;
+
         }
+        if (Vector3.Distance(transform.position, HandPlaceHolderPosition) < 0.2f && !cardplayed)
+        {
+          // Debug.Log("Moving towards Hand placeholder");
+          transform.position = Vector3.MoveTowards(transform.position, HandPlaceHolderPosition, moveSpeed * Time.deltaTime);
+          originalPosition = HandPlaceHolderPosition;
+        }
+
         // If the card it's far from the placeholder, move the card towards the original position.
         // If the card is below the table, add some height to the card to avoid collision.
-        else if (transform.position.y < 1)
+        else if (transform.position.y < 1 && !cardplayed)
         {
-            transform.position = Vector3.MoveTowards(transform.position + spacer, originalPosition, moveSpeed * Time.deltaTime);
+          // Debug.Log("Moving to original position spacer");
+          transform.position = Vector3.MoveTowards(transform.position + spacer, originalPosition, moveSpeed * Time.deltaTime);
         }
         // Otherwaise just move the card to the original position
-        else
+        else if (!cardplayed)
         {
-            transform.position = Vector3.MoveTowards(transform.position, originalPosition, moveSpeed * Time.deltaTime);
+          // Debug.Log("Moving to original position");
+          transform.position = Vector3.MoveTowards(transform.position, originalPosition, moveSpeed * Time.deltaTime);
         }
-
-        // TODO: Check if it is necessary
-        isBeingHeld = false;
-        }
+      }
     }
-
-
-    // if (!isBeingHeld && !isHoldingButton)
-    // {
-    //     Debug.Log("other");
-    //     if (Vector3.Distance(transform.position, originalPosition) > 0.3f)
-    //     {
-    //         transform.rotation = Quaternion.identity;
-    //         transform.position = Vector3.MoveTowards(transform.position + spacer, originalPosition, moveSpeed * Time.deltaTime);
-    //     }
-
-    // }
-
 
   }
 
   void OnTriggerEnter(Collider other)
   {
-    // Debug.Log("When colliding it is holding button? "+isHoldingButton);
-
-    //  // If the user is pressing the button and there's a collision between hand and object, then the card must be held
-    // if (other.gameObject.CompareTag("Hand") && isHoldingButton)
-    // {
-    //   Debug.Log("It is working");
-    //   isBeingHeld = true;
-    // }
-
-         // If the user is pressing the button and there's a collision between hand and object, then the card must be held
-    if (other.gameObject.CompareTag("Card-placeholder"))
+    // If the user is pressing the button and there's a collision between hand and object, then the card must be held
+    if (other.gameObject.CompareTag("Card-placeholder") && isHoldingButton)
     {
-        
-        placeHolderPosition = other.transform.position;
-        Debug.Log("Colliding with placeholder" + placeHolderPosition);
+      placeHolderPosition = other.transform.position;
+      // Debug.Log("Colliding with placeholder" + placeHolderPosition);
+     
     }
 
-
+    if (other.gameObject.CompareTag("Hand-placeholder") && isHoldingButton) 
+    {
+      HandPlaceHolderPosition = other.transform.position;
+      // Debug.Log("Colliding with Handplaceholder" + HandPlaceHolderPosition);
+    }
 
   }
 }

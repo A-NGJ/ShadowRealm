@@ -8,6 +8,9 @@ TagManager:
   - hand
   - Card-placeholder
   - GameText
+  - opponent-placeholder
+  - Hand-placeholder
+  - Card
   layers:
   - Default
   - TransparentFX
