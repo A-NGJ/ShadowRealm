@@ -10,7 +10,7 @@ public class PressBellOnValidate : MonoBehaviour
     void Start()
     {
         XRSimpleInteractable interactable = GetComponent<XRSimpleInteractable>();
-        interactable.activated.AddListener(PressBell);
+        interactable.selectEntered.AddListener(PressBell);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class PressBellOnValidate : MonoBehaviour
         
     }
 
-    public void PressBell(ActivateEventArgs arg)
+    public void PressBell(SelectEnterEventArgs arg)
     {
         GetComponent<Rigidbody>().AddForce(-1 * transform.up * pushForce);
     }

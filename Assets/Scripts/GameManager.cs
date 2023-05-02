@@ -17,13 +17,16 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     // define a variable to hold the text object
     public TextMeshProUGUI gameText;
-    
+    public TextMeshProUGUI healthText;
+    public int playerHealth = 10;
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameState = GameState.Start;
         gameText = GameObject.Find("GameText").GetComponent<TextMeshProUGUI>();
+        healthText.text = string.Format("Health: {0}", playerHealth);
     }
 
     void Update()
@@ -32,6 +35,20 @@ public class GameManager : MonoBehaviour
         {
             StartGame();
         }
+
+        if (gameState == GameState.OponentTurn && Input.anyKeyDown)
+        {
+            if (playerHealth > 0)
+            {
+                playerHealth = playerHealth - 1;
+            }
+            healthText.text = string.Format("Health: {0}", playerHealth);
+        }
+
+        if (playerHealth <= 0)
+        {
+            EndGame();
+        }
     }
 
     public void StartGame()
@@ -39,6 +56,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PlayerTurn;
         // set the text to "Player's turn"
         gameText.text = "Player's turn";
+        gameText.rectTransform.position = new Vector3(gameText.rectTransform.position.x, 395, gameText.rectTransform.position.z);
     }
 
     public void EndTurn()
@@ -61,6 +79,13 @@ public class GameManager : MonoBehaviour
             // set the text to "Player's turn"
             gameText.text = "Player's turn";
         }
+    }
+
+    public void EndGame()
+    {
+        gameState = GameState.Lost;
+        gameText.text = "Game over";
+        gameText.rectTransform.position = new Vector3(gameText.rectTransform.position.x, 215, gameText.rectTransform.position.z);
     }
 
     
