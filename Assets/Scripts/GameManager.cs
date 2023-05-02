@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameState = GameState.Start;
-        gameText = GameObject.Find("GameText").GetComponent<TextMeshProUGUI>();
         healthText.text = string.Format("Health: {0}", playerHealth);
     }
 
