@@ -11,7 +11,12 @@ public class CardManager : MonoBehaviour
     public GameObject wolfCard;
     public GameObject bearCard;
 
-    public Card.CardType cardType;
+    public const float butterflyCardThreshold = 0.2f;
+    public const float hareCardThreshold = 0.5f;
+    public const float snakeCardThreshold = 0.65f;
+    public const float wolfCardThreshold = 0.9f;
+    public const float bearCardThreshold = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,18 +30,18 @@ public class CardManager : MonoBehaviour
     }
     public GameObject DrawCard()
     {
-        cardType = (Card.CardType)Random.Range(1, 5);
-        switch (cardType)
+        float drawVal = Random.Range(0f, 1f);
+        switch (drawVal)
         {
-            case Card.CardType.Butterfly:
+            case < butterflyCardThreshold:
                 return butterflyCard;
-            case Card.CardType.Hare:
+            case < hareCardThreshold:
                 return hareCard;
-            case Card.CardType.Snake:
+            case < snakeCardThreshold:
                 return snakeCard;
-            case Card.CardType.Wolf:
+            case < wolfCardThreshold:
                 return wolfCard;
-            case Card.CardType.Bear:
+            case <= bearCardThreshold:
                 return bearCard;
             default:
                 return card;

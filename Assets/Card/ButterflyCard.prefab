@@ -66,7 +66,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2100000, guid: a9cda93c2574f6e4c860babe57057daf, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f4c49b20604b7d46a2114d219f00ff4, type: 2}
     - target: {fileID: 6704927069803653603, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9cda93c2574f6e4c860babe57057daf, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f4c49b20604b7d46a2114d219f00ff4, type: 2}
     - target: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_Name

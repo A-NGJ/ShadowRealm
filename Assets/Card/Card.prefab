@@ -440,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f980b896d25b542b95666c33eb84b1, type: 2}
+  - {fileID: 2100000, guid: c8e0efe2ab1b4e542901d753c32d8267, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 03f980b896d25b542b95666c33eb84b1,
+          m_ObjectArgument: {fileID: 2100000, guid: c8e0efe2ab1b4e542901d753c32d8267,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
@@ -719,6 +719,7 @@ MonoBehaviour:
   placeHolderPosition: {x: 0, y: 0, z: 0}
   opponentPlaceHolderPosition: {x: 0, y: 0, z: 0}
   HandPlaceHolderPosition: {x: 0, y: 0, z: 0}
+  card: {fileID: -9149188265440113124}
 --- !u!114 &-9149188265440113124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,6 +739,12 @@ MonoBehaviour:
   healthText: {fileID: 775501600636723934}
   attackText: {fileID: 486935693213432337}
   cardTitle: {fileID: 455454221913907295}
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
 --- !u!1 &6795599814372968668
 GameObject:
   m_ObjectHideFlags: 0

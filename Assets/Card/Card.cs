@@ -22,6 +22,14 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI cardTitle;
 
+    // flag values for game logic
+    public bool isSummoned = false;
+    public bool hasAttacked = false;
+    public bool isSacrificed = false;
+    public bool isPoisoned = false;
+    public bool isBuffed = false;
+    public bool isHibernating = false;
+
     void Start()
     {
         healthText.text = string.Format("H: {0}", healthVal);
