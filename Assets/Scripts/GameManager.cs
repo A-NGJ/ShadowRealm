@@ -70,8 +70,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI opponentHealthText;
-    public int playerHealth = 10;
-    public int opponentHealth = 10;
+    public int playerHealth = 20;
+    public int opponentHealth = 20;
     public TextMeshProUGUI playerSacrificeText;
     public TextMeshProUGUI opponentSacrificeText;
     public int playerSacrifice = 0;
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log("Found " + playerPlaceholders.Count + " player placeholders");
 
-        playerSacrificePile = GameObject.FindGameObjectsWithTag("sacrifice-placeholder")[0];
+        //playerSacrificePile = GameObject.FindGameObjectsWithTag("sacrifice-placeholder")[0];
 
         // Find all opponent placeholders in the scene
         opponentPlaceholders = new List<GameObject>();
@@ -161,7 +161,7 @@ public class GameManager : MonoBehaviour
                             sacrificedCardBehaviour.moveSpeed * Time.deltaTime);
                     }
                 }
-
+                
                 // logic for cards in the playing area
                 foreach (GameObject placeholder in playerPlaceholders)
                 {
@@ -415,8 +415,9 @@ public class GameManager : MonoBehaviour
                         playerCard.healthVal = 0;
                         playerCard.healthText.color = Color.red;
                         playerCards[i] = null;
-                        playerCard.hasAttacked = true;
                         playerCard.Delete();
+                        playerPlaceholders[i].GetComponent<CardHolder>().hasCard = false;
+                        playerPlaceholders[i].GetComponent<CardHolder>().heldCard = null;
                     }
                     if (opponentCard.healthVal <= 0)
                     {
@@ -425,8 +426,9 @@ public class GameManager : MonoBehaviour
                         opponentCard.healthVal = 0;
                         opponentCard.healthText.color = Color.red;
                         opponentCards[i] = null;
-                        opponentCard.hasAttacked = true;
-                        opponentCard.Delete();
+                        opponentCard.Delete(); 
+                        opponentPlaceholders[i].GetComponent<OpponentCardHolder>().hasCard = false;
+                        opponentPlaceholders[i].GetComponent<OpponentCardHolder>().heldCard = null;
                     }
                 }
                 else if (playerCards[i] != null && opponentCards[i] == null)

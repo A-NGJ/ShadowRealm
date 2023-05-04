@@ -22,8 +22,10 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI cardTitle;
+    public Transform destroyPoint;
+    public float moveSpeed = 10f;
 
-    public int bounceForce = 50;
+    public int bounceForce = 500;
 
     // flag values for game logic
     public bool isSummoned = false;
@@ -48,8 +50,8 @@ public class Card : MonoBehaviour
 
     public void Delete()
     {
-        GetComponentInParent<Rigidbody>().AddForce(transform.up * bounceForce);
-        Destroy(parent, 2);
+        //GetComponentInParent<Rigidbody>().AddForce(transform.up * bounceForce);
+        Destroy(parent);
         Debug.Log("Card deleted");
     }
 }

@@ -65,6 +65,7 @@ public class CardBehaviour : MonoBehaviour
                     cardplayed = true;
                     grabInteractable.enabled = false;
                 }
+                /*
                 if (Vector3.Distance(transform.position, playerSacrificePilePosition) < 0.1f && !cardplayed)
                 {
                     // Debug.Log("Moving towards placeholder " + placeHolderPosition);
@@ -72,6 +73,7 @@ public class CardBehaviour : MonoBehaviour
                     cardplayed = true;
                     grabInteractable.enabled = false;
                 }
+                */
                 if (Vector3.Distance(transform.position, HandPlaceHolderPosition) < 0.2f && !cardplayed)
                 {
                     // Debug.Log("Moving towards Hand placeholder");

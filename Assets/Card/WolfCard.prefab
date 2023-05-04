@@ -121,6 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5755528491929644243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4203519938223495375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7447063420464623913 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
@@ -147,6 +153,8 @@ MonoBehaviour:
   healthText: {fileID: 3501202931064486417}
   attackText: {fileID: 4365138617885303518}
   cardTitle: {fileID: 4325705446820427920}
+  destroyPoint: {fileID: 5755528491929644243}
+  moveSpeed: 10
   bounceForce: 20
   isSummoned: 0
   hasAttacked: 0

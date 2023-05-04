@@ -85,6 +85,12 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -9149188265440113124, guid: 9a38cabc47401f447b22b64a61cde27f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a38cabc47401f447b22b64a61cde27f, type: 3}
+--- !u!4 &2242599316966665787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7680055210166360615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4006416002875569089 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
@@ -111,6 +117,8 @@ MonoBehaviour:
   healthText: {fileID: 6941783280096671993}
   attackText: {fileID: 7806137743400722486}
   cardTitle: {fileID: 7838252051505871480}
+  destroyPoint: {fileID: 2242599316966665787}
+  moveSpeed: 10
   bounceForce: 20
   isSummoned: 0
   hasAttacked: 0

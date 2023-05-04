@@ -147,6 +147,8 @@ MonoBehaviour:
   healthText: {fileID: 1615807377096838884}
   attackText: {fileID: 1904551818056373803}
   cardTitle: {fileID: 1944916861934341221}
+  destroyPoint: {fileID: 7576737998451808294}
+  moveSpeed: 10
   bounceForce: 20
   isSummoned: 0
   hasAttacked: 0
@@ -154,3 +156,9 @@ MonoBehaviour:
   isPoisoned: 0
   isBuffed: 0
   isHibernating: 0
+--- !u!4 &7576737998451808294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2067049594107391034}
+  m_PrefabAsset: {fileID: 0}
