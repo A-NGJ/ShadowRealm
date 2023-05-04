@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513b740441b9ada4fb7862862789b6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 4006416002875569089}
   cardName: Bear
   cardType: 4
   healthVal: 6
@@ -110,6 +111,13 @@ MonoBehaviour:
   healthText: {fileID: 6941783280096671993}
   attackText: {fileID: 7806137743400722486}
   cardTitle: {fileID: 7838252051505871480}
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
 --- !u!114 &6941783280096671993 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 775501600636723934, guid: 9a38cabc47401f447b22b64a61cde27f,

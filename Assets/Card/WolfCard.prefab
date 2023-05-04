@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a903345cdbd43438237ece12e106de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 7447063420464623913}
   cardName: Wolf
   cardType: 3
   healthVal: 3
@@ -146,3 +147,10 @@ MonoBehaviour:
   healthText: {fileID: 3501202931064486417}
   attackText: {fileID: 4365138617885303518}
   cardTitle: {fileID: 4325705446820427920}
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0

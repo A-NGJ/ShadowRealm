@@ -14,6 +14,7 @@ public class Card : MonoBehaviour
         Bear,
     }
 
+    public GameObject parent;
     public string cardName = "Card";
     public CardType cardType;
     public int healthVal = 0;
@@ -21,6 +22,8 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI cardTitle;
+
+    public int bounceForce = 50;
 
     // flag values for game logic
     public bool isSummoned = false;
@@ -41,5 +44,12 @@ public class Card : MonoBehaviour
     {
         healthText.text = string.Format("H: {0}", healthVal);
         attackText.text = string.Format("A: {0}", attackVal);
+    }
+
+    public void Delete()
+    {
+        GetComponentInParent<Rigidbody>().AddForce(transform.up * bounceForce);
+        Destroy(parent, 2);
+        Debug.Log("Card deleted");
     }
 }

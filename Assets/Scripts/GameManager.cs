@@ -8,6 +8,7 @@ public enum GameState
     Start,
     PlayerTurn,
     OpponentTurn,
+    Fight,
     Won,
     Lost,
 }
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public CardManager cardManager;
     public List<GameObject> playerPlaceholders;
-    public List<Transform> opponentPlaceholders;
+    public List<GameObject> opponentPlaceholders;
     public GameObject playerSacrificePile;
     // define a variable to hold the text object
     public TextMeshProUGUI gameText;
@@ -76,7 +77,8 @@ public class GameManager : MonoBehaviour
     public int opponentSacrifice = 0;
     public Actor player;
     public Actor opponent;
-
+    
+    private bool hasAttackedThisTurn = false;
     private bool opponentCardsDistributed = false;
 
     // Start is called before the first frame update
@@ -113,10 +115,10 @@ public class GameManager : MonoBehaviour
         playerSacrificePile = GameObject.FindGameObjectsWithTag("sacrifice-placeholder")[0];
 
         // Find all opponent placeholders in the scene
-        opponentPlaceholders = new List<Transform>();
+        opponentPlaceholders = new List<GameObject>();
         foreach (GameObject placeholder in GameObject.FindGameObjectsWithTag("opponent-placeholder"))
         {
-            opponentPlaceholders.Add(placeholder.transform);
+            opponentPlaceholders.Add(placeholder);
         }
         Debug.Log("Found " + opponentPlaceholders.Count + " opponent placeholders");
     }
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.PlayerTurn:
+                hasAttackedThisTurn = false;
                 opponentCardsDistributed = false;
 
                 // logic for cards in the sacrifice pile
@@ -206,10 +209,13 @@ public class GameManager : MonoBehaviour
 
                 if (!opponentCardsDistributed)
                 {
-                    int attackVal = DistributeOpponentCards();
-                    Attack(player, attackVal);
+                    DistributeOpponentCards();
                     EndTurn();
                 }
+                break;
+            case GameState.Fight:
+                Fight();
+                EndTurn();
                 break;
             case GameState.Won:
                 WinGame();
@@ -230,7 +236,7 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn()
     {
-        if (gameState == GameState.OpponentTurn || gameState == GameState.PlayerTurn)
+        if (gameState == GameState.OpponentTurn || gameState == GameState.PlayerTurn || gameState == GameState.Fight)
         {
             StartCoroutine(SwitchTurns());
         }
@@ -238,8 +244,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SwitchTurns()
     {
-        Debug.Log("switching turns");
-        yield return new WaitForSeconds(1f);
+        //Debug.Log("switching turns");
         if (gameState == GameState.PlayerTurn)
         {
             gameState = GameState.OpponentTurn;
@@ -248,6 +253,14 @@ public class GameManager : MonoBehaviour
         }
         else if (gameState == GameState.OpponentTurn)
         {
+            yield return new WaitForSeconds(2f);
+            gameState = GameState.Fight;
+            // set the text to "Fight!"
+            gameText.text = "Fight!";
+        }
+        else if (gameState == GameState.Fight)
+        {
+            yield return new WaitForSeconds(2f);
             gameState = GameState.PlayerTurn;
             // set the text to "Player's turn"
             gameText.text = "Player's turn";
@@ -268,8 +281,28 @@ public class GameManager : MonoBehaviour
         gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
     }
 
-    private int DistributeOpponentCards()
+    private void DistributeOpponentCards()
     {
+        foreach (GameObject placeholder in opponentPlaceholders)
+        {
+            OpponentCardHolder oppCardHolder = placeholder.GetComponent<OpponentCardHolder>();
+            Debug.Log("Opponent cardHolder");
+            if (!oppCardHolder.hasCard)
+            {
+                Debug.Log("No card on opponent placeholder");
+                int instantiateCard = Random.Range(0, 2);
+                if (instantiateCard == 1)
+                {
+                    // Create a card
+                    GameObject card = Instantiate(cardManager.DrawCard());
+                    // Place the card on the free placeholder
+                    card.transform.SetParent(placeholder.transform);
+                    card.transform.localPosition = Vector3.zero;
+                    oppCardHolder.hasCard = true;
+                }
+            }
+        }
+        /*
         int numberOfCards = Random.Range(1, 4); // Distribute between 1 and 4 cards
 
         for (int i = 0; i < numberOfCards; i++) {
@@ -298,13 +331,82 @@ public class GameManager : MonoBehaviour
                 // card.transform.localRotation = Quaternion.identity;
             }
         }
-
+            */
         opponentCardsDistributed = true;
-
         Debug.Log("Cards distributed");
+    }
+
+    
+    private void Fight() {
+
+        // Enumerate player cards
+        List<GameObject> playerCards = new List<GameObject>();
+        foreach (GameObject placeholder in playerPlaceholders)
+        {
+            CardHolder cardHolder = placeholder.GetComponent<CardHolder>();
+            if (cardHolder.hasCard)
+            {
+                playerCards.Add(cardHolder.heldCard);
+            }
+            else
+            {
+                playerCards.Add(null);
+            }
+        }
+
+        // Enumerate opponent cards
+        List<GameObject> opponentCards = new List<GameObject>();
+        foreach (GameObject placeholder in opponentPlaceholders)
+        {
+            OpponentCardHolder oppCardHolder = placeholder.GetComponent<OpponentCardHolder>();
+            if (oppCardHolder.hasCard)
+            {
+                opponentCards.Add(oppCardHolder.heldCard);
+            }
+            else
+            {
+                opponentCards.Add(null);
+            }
+        }
+
+        // Fight
+        if (!hasAttackedThisTurn)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (playerCards[i] != null && opponentCards[i] != null)
+                {
+                    Card playerCard = playerCards[i].GetComponent<Card>();
+                    Card opponentCard = opponentCards[i].GetComponent<Card>();
+                    playerCard.healthVal -= opponentCard.attackVal;
+                    opponentCard.healthVal -= playerCard.attackVal;
+                    if (playerCard.healthVal <= 0)
+                    {
+                        playerCard.healthVal = 0;
+                        playerCard.healthText.color = Color.red;
+                        playerCards[i] = null;
+                        playerCard.hasAttacked = true;
+                        playerCard.Delete();
+                    }
+                    if (opponentCard.healthVal <= 0)
+                    {
+                        opponentCard.healthVal = 0;
+                        opponentCard.healthText.color = Color.red;
+                        opponentCards[i] = null;
+                        opponentCard.hasAttacked = true;
+                        opponentCard.Delete();
+                    }
+                    
+                }
+            }
+        }
+        hasAttackedThisTurn = true;
+        return;
+
+        /*
         // Calculate the total attack value of all opponent's cards
         int totalAttack = 0;
-        foreach (Transform placeholder in opponentPlaceholders)
+        foreach (GameObject placeholder in opponentPlaceholders)
         {
             if (placeholder.childCount > 0)
             {
@@ -316,9 +418,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("attack");
         // return cumulated attack value
         return totalAttack;
-    }
 
-    private void Attack(Actor actor, int attackVal) {
         actor.setHealth(actor.health - attackVal);
         if (actor.health <= 0)
         {
@@ -331,6 +431,8 @@ public class GameManager : MonoBehaviour
                 gameState = GameState.Won;
             }
         }
+        */
     }
+
 
 }

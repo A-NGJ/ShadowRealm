@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7444e2d5ba5910f4291bea67499ac9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 4729638336538265052}
   cardName: Snake
   cardType: 2
   healthVal: 3
@@ -146,3 +147,10 @@ MonoBehaviour:
   healthText: {fileID: 1615807377096838884}
   attackText: {fileID: 1904551818056373803}
   cardTitle: {fileID: 1944916861934341221}
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
