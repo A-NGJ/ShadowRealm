@@ -11,6 +11,7 @@ public enum GameState
     Fight,
     Won,
     Lost,
+    Draw,
 }
 
 public enum ActorType
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
             case GameState.PlayerTurn:
                 hasAttackedThisTurn = false;
                 opponentCardsDistributed = false;
-
+                /*
                 // logic for cards in the sacrifice pile
                 if (playerSacrificePile.GetComponent<CardHolder>().hasCard == true)
                 {
@@ -203,6 +204,7 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
+                */
                 break;
             case GameState.OpponentTurn:
                 player.isCardDrawn = false;
@@ -215,7 +217,26 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Fight:
                 Fight();
-                EndTurn();
+                if (player.health <= 0 && opponent.health <= 0)
+                {
+                    player.setHealth(0);
+                    opponent.setHealth(0);
+                    gameState = GameState.Draw;
+                }
+                else if (player.health <= 0 && opponent.health > 0)
+                {
+                    player.setHealth(0);
+                    gameState = GameState.Lost;
+                }
+                else if (player.health > 0 && opponent.health <= 0)
+                {
+                    opponent.setHealth(0);
+                    gameState = GameState.Won;
+                }
+                else
+                {
+                    EndTurn();
+                }
                 break;
             case GameState.Won:
                 WinGame();
@@ -278,6 +299,13 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.Won;
         gameText.text = "You won!";
+        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
+    }
+
+    void DrawGame()
+    {
+        gameState = GameState.Draw;
+        gameText.text = "Draw!";
         gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
     }
 
@@ -382,6 +410,8 @@ public class GameManager : MonoBehaviour
                     opponentCard.healthVal -= playerCard.attackVal;
                     if (playerCard.healthVal <= 0)
                     {
+                        player.health += playerCard.healthVal;
+                        player.setHealth(player.health);
                         playerCard.healthVal = 0;
                         playerCard.healthText.color = Color.red;
                         playerCards[i] = null;
@@ -390,13 +420,26 @@ public class GameManager : MonoBehaviour
                     }
                     if (opponentCard.healthVal <= 0)
                     {
+                        opponent.health += opponentCard.healthVal;
+                        opponent.setHealth(opponent.health);
                         opponentCard.healthVal = 0;
                         opponentCard.healthText.color = Color.red;
                         opponentCards[i] = null;
                         opponentCard.hasAttacked = true;
                         opponentCard.Delete();
                     }
-                    
+                }
+                else if (playerCards[i] != null && opponentCards[i] == null)
+                {
+                    Card playerCard = playerCards[i].GetComponent<Card>();
+                    opponent.health -= playerCard.attackVal;
+                    opponent.setHealth(opponent.health);
+                }
+                else if (playerCards[i] == null && opponentCards[i] != null)
+                {
+                    Card opponentCard = opponentCards[i].GetComponent<Card>();
+                    player.health -= opponentCard.attackVal;
+                    player.setHealth(player.health);
                 }
             }
         }
