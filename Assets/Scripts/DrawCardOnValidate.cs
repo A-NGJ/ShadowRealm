@@ -43,6 +43,10 @@ public class DrawCardOnValidate : MonoBehaviour
                 gameManager.player.isCardDrawn = true;
                 drawCount = 0;
             }
+            Debug.Log(GameObject.Find ("DeckCanvas"));
+            if (GameObject.Find("DeckCanvas") != null){
+                Destroy (GameObject.Find ("DeckCanvas"));
+            }
             
         }
     }

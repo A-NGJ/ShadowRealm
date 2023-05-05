@@ -46,17 +46,17 @@ public class Actor
         this.healthTextUGUI.text = string.Format(this.healthText, this.health);
     }
 
-    public void setSacrificeText(string sacrificeText)
-    {
-        this.sacrificeText = sacrificeText;
-        this.sacrificeTextUGUI.text = string.Format(this.sacrificeText, 0);
-    }
+    // public void setSacrificeText(string sacrificeText)
+    // {
+    //     this.sacrificeText = sacrificeText;
+    //     this.sacrificeTextUGUI.text = string.Format(this.sacrificeText, 0);
+    // }
 
-    public void setSacrifice(int sacrifice)
-    {
-        this.sacrifice = sacrifice;
-        this.sacrificeTextUGUI.text = string.Format(this.sacrificeText, this.sacrifice);
-    }
+//     public void setSacrifice(int sacrifice)
+//     {
+//         this.sacrifice = sacrifice;
+//         this.sacrificeTextUGUI.text = string.Format(this.sacrificeText, this.sacrifice);
+//     }
 }
 
 public class GameManager : MonoBehaviour
@@ -88,20 +88,20 @@ public class GameManager : MonoBehaviour
         player = new Actor();
         player.actorType = ActorType.Player;
         player.healthTextUGUI = playerHealthText;
-        player.setHealthText("Player Health: {0}");
+        player.setHealthText("Health: {0}");
         player.setHealth(playerHealth);
-        player.sacrificeTextUGUI = playerSacrificeText;
-        player.setSacrificeText("Player Sacrifice: {0}");
-        player.setSacrifice(playerSacrifice);
+        // player.sacrificeTextUGUI = playerSacrificeText;
+        // player.setSacrificeText("Player Sacrifice: {0}");
+        // player.setSacrifice(playerSacrifice);
 
         opponent = new Actor();
         opponent.actorType = ActorType.Opponent;
         opponent.healthTextUGUI = opponentHealthText;
-        opponent.setHealthText("Opponent Health: {0}");
+        opponent.setHealthText("Enemies: {0}");
         opponent.setHealth(opponentHealth);
-        opponent.sacrificeTextUGUI = opponentSacrificeText;
-        opponent.setSacrificeText("Opponent Sacrifice: {0}");
-        opponent.setSacrifice(opponentSacrifice);
+        // opponent.sacrificeTextUGUI = opponentSacrificeText;
+        // opponent.setSacrificeText("Opponent Sacrifice: {0}");
+        // opponent.setSacrifice(opponentSacrifice);
 
         gameState = GameState.Start;
 
@@ -252,7 +252,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PlayerTurn;
         // set the text to "Player's turn"
         gameText.text = "Player's turn";
-        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -35);
+        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -75);
     }
 
     public void EndTurn()
