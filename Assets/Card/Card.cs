@@ -23,9 +23,10 @@ public class Card : MonoBehaviour
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI cardTitle;
     public Transform destroyPoint;
-    public float moveSpeed = 10f;
+    public float moveSpeed;
 
-    public int bounceForce = 500;
+    public float destroyDelay;
+    public int bounceForce;
 
     // flag values for game logic
     public bool isSummoned = false;

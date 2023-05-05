@@ -748,7 +748,8 @@ MonoBehaviour:
   cardTitle: {fileID: 455454221913907295}
   destroyPoint: {fileID: 8469680694087283740}
   moveSpeed: 10
-  bounceForce: 20
+  destroyDelay: 2
+  bounceForce: 100
   isSummoned: 0
   hasAttacked: 0
   isSacrificed: 0
