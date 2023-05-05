@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     public int opponentSacrifice = 0;
     public Actor player;
     public Actor opponent;
+    public GameObject cardDeck;
     
     private bool hasAttackedThisTurn = false;
     private bool opponentCardsDistributed = false;
@@ -207,6 +208,7 @@ public class GameManager : MonoBehaviour
                 */
                 break;
             case GameState.OpponentTurn:
+                cardDeck.GetComponent<DrawCardOnValidate>().drawCount = 0;
                 player.isCardDrawn = false;
 
                 if (!opponentCardsDistributed)
@@ -416,8 +418,8 @@ public class GameManager : MonoBehaviour
                         playerCard.healthText.color = Color.red;
                         playerCards[i] = null;
                         playerCard.Delete();
-                        playerPlaceholders[i].GetComponent<CardHolder>().hasCard = false;
-                        playerPlaceholders[i].GetComponent<CardHolder>().heldCard = null;
+                        //playerPlaceholders[i].GetComponent<CardHolder>().hasCard = false;
+                        //playerPlaceholders[i].GetComponent<CardHolder>().heldCard = null;
                     }
                     if (opponentCard.healthVal <= 0)
                     {
@@ -427,8 +429,8 @@ public class GameManager : MonoBehaviour
                         opponentCard.healthText.color = Color.red;
                         opponentCards[i] = null;
                         opponentCard.Delete(); 
-                        opponentPlaceholders[i].GetComponent<OpponentCardHolder>().hasCard = false;
-                        opponentPlaceholders[i].GetComponent<OpponentCardHolder>().heldCard = null;
+                        //opponentPlaceholders[i].GetComponent<OpponentCardHolder>().hasCard = false;
+                        //opponentPlaceholders[i].GetComponent<OpponentCardHolder>().heldCard = null;
                     }
                 }
                 else if (playerCards[i] != null && opponentCards[i] == null)
