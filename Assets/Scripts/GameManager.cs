@@ -70,8 +70,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI opponentHealthText;
-    public int playerHealth = 20;
-    public int opponentHealth = 20;
+    public int playerHealth = 10;
+    public int opponentHealth = 15;
     public TextMeshProUGUI playerSacrificeText;
     public TextMeshProUGUI opponentSacrificeText;
     public int playerSacrifice = 0;
@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PlayerTurn;
         // set the text to "Player's turn"
         gameText.text = "Player's turn";
-        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -75);
+        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, gameText.rectTransform.anchoredPosition.y);
     }
 
     public void EndTurn()
