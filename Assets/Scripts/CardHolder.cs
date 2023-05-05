@@ -37,14 +37,17 @@ public class CardHolder : MonoBehaviour
             isHoldingButton = false;
         }
         
+        
     }
 
     void OnTriggerStay(Collider other)
     {
+        // Debug.Log("Is staying the object" + other.gameObject.tag);
         //Debug.Log("Something is colliding with the Placeholder" + other.gameObject.tag);
         if (other.gameObject.CompareTag("Card") && !isHoldingButton) // && card == null
-        {
-            //Debug.Log("PlaceHolder has a Card");
+        {   
+            
+            // Debug.Log(this.gameObject.name +" has a Card");
             hasCard = true;
             heldCard = other.gameObject;
             //   card = other.gameObject.GetComponent<CardBehaviour>();
