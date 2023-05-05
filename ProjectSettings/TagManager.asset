@@ -12,6 +12,7 @@ TagManager:
   - Hand-placeholder
   - Card
   - sacrifice-placeholder
+  - DeckCanvas
   layers:
   - Default
   - TransparentFX
