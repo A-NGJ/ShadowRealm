@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     public Actor player;
     public Actor opponent;
     public GameObject cardDeck;
+    public AudioSource bellSound;
     
     private bool hasAttackedThisTurn = false;
     private bool opponentCardsDistributed = false;
@@ -254,6 +255,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PlayerTurn;
         // set the text to "Player's turn"
         gameText.text = "Player's turn";
+        bellSound.Play();
         gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, gameText.rectTransform.anchoredPosition.y);
     }
 
@@ -328,7 +330,6 @@ public class GameManager : MonoBehaviour
                     // Place the card on the free placeholder
                     card.transform.SetParent(placeholder.transform);
                     card.transform.localPosition = Vector3.zero;
-                    oppCardHolder.hasCard = true;
                 }
             }
         }

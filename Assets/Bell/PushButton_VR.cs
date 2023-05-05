@@ -12,6 +12,7 @@ public class PushButton_VR : MonoBehaviour
     private bool _isPressed;
     private Vector3 _startPos;
     private ConfigurableJoint _joint;
+    public AudioSource bellSound;
 
     public UnityEvent onPressed, onReleased;
     
@@ -44,6 +45,7 @@ public class PushButton_VR : MonoBehaviour
     {
         _isPressed = true;
         onPressed.Invoke();
+        bellSound.Play();
         // Invoke the EndTurn method on the GameManager
         GameObject.Find("GameManager").GetComponent<GameManager>().EndTurn();
         Debug.Log("Bell Pressed"); 
