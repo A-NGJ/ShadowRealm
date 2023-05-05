@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
         {
             playerPlaceholders.Add(placeholder);
         }
-        Debug.Log("Found " + playerPlaceholders.Count + " player placeholders");
+        // Debug.Log("Found " + playerPlaceholders.Count + " player placeholders");
 
         //playerSacrificePile = GameObject.FindGameObjectsWithTag("sacrifice-placeholder")[0];
 
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         {
             opponentPlaceholders.Add(placeholder);
         }
-        Debug.Log("Found " + opponentPlaceholders.Count + " opponent placeholders");
+        // Debug.Log("Found " + opponentPlaceholders.Count + " opponent placeholders");
     }
 
     void Update()

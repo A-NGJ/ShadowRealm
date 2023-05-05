@@ -25,7 +25,8 @@ public class CardBehaviour : MonoBehaviour
     public Vector3 HandPlaceHolderPosition;
     public Vector3 playerSacrificePilePosition;
     public XRGrabInteractable grabInteractable;
-    public Card card;
+    public bool placehand = false;
+    public bool hasCard = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,18 @@ public class CardBehaviour : MonoBehaviour
         {
             isHoldingButton = false;
         }
+        // Debug.Log(cardHolder);
+
+        if (cardplayed && Vector3.Distance(transform.position, placeHolderPosition) < 0.1f) {
+          transform.rotation = originalRotation;
+          transform.position = Vector3.MoveTowards(transform.position, placeHolderPosition, moveSpeed * Time.deltaTime);
+        }
+
+        if (placehand && !cardplayed && Vector3.Distance(transform.position, HandPlaceHolderPosition) < 0.1f) {
+          // Debug.Log("Hello");
+          transform.rotation = originalRotation;
+          transform.position = Vector3.MoveTowards(transform.position, HandPlaceHolderPosition, moveSpeed * Time.deltaTime);
+        }
 
         // Check if the card is far away from the table
         if (Vector3.Distance(transform.position, originalPosition) > 0.1f)
@@ -58,27 +71,20 @@ public class CardBehaviour : MonoBehaviour
 
                 // Check the distance with the last placeholder the user has interacted with. 
                 // If the distance with that placeholder is below x move the card towards the placeholder.
-                if (Vector3.Distance(transform.position, placeHolderPosition) < 0.1f && !cardplayed)
+                if (Vector3.Distance(transform.position, placeHolderPosition) < 0.1f && !cardplayed && !hasCard)
                 {
                     // Debug.Log("Moving towards placeholder " + placeHolderPosition);
                     transform.position = Vector3.MoveTowards(transform.position, placeHolderPosition, moveSpeed * Time.deltaTime);
                     cardplayed = true;
                     grabInteractable.enabled = false;
                 }
-                /*
-                if (Vector3.Distance(transform.position, playerSacrificePilePosition) < 0.1f && !cardplayed)
-                {
-                    // Debug.Log("Moving towards placeholder " + placeHolderPosition);
-                    transform.position = Vector3.MoveTowards(transform.position, playerSacrificePilePosition, moveSpeed * Time.deltaTime);
-                    cardplayed = true;
-                    grabInteractable.enabled = false;
-                }
-                */
-                if (Vector3.Distance(transform.position, HandPlaceHolderPosition) < 0.2f && !cardplayed)
+ 
+                if (Vector3.Distance(transform.position, HandPlaceHolderPosition) < 0.2f && !cardplayed && !hasCard)
                 {
                     // Debug.Log("Moving towards Hand placeholder");
                     transform.position = Vector3.MoveTowards(transform.position, HandPlaceHolderPosition, moveSpeed * Time.deltaTime);
                     originalPosition = HandPlaceHolderPosition;
+                    placehand = true;
                 }
 
                 // If the card it's far from the placeholder, move the card towards the original position.
@@ -98,6 +104,7 @@ public class CardBehaviour : MonoBehaviour
         }
         
     }
+    
 
     void OnTriggerEnter(Collider other)
     {
@@ -105,6 +112,8 @@ public class CardBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("Card-placeholder") && isHoldingButton)
         {
             placeHolderPosition = other.transform.position;
+            hasCard = other.gameObject.GetComponent<CardHolder>().hasCard;
+            // Debug.Log(hasCard);
             // Debug.Log("Colliding with placeholder" + placeHolderPosition);
 
         }
@@ -113,12 +122,16 @@ public class CardBehaviour : MonoBehaviour
         {
             HandPlaceHolderPosition = other.transform.position;
             // Debug.Log("Colliding with Handplaceholder" + HandPlaceHolderPosition);
+            hasCard = other.gameObject.GetComponent<CardHolder>().hasCard;
+            // Debug.Log(hasCard);
         }
 
         if (other.gameObject.CompareTag("sacrifice-placeholder") && isHoldingButton)
         {
             playerSacrificePilePosition = other.transform.position;
             // Debug.Log("Colliding with Handplaceholder" + HandPlaceHolderPosition);
+            hasCard = other.gameObject.GetComponent<CardHolder>().hasCard;
+            // Debug.Log(hasCard);
         }
 
     }
