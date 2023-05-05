@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.97538567
       objectReference: {fileID: 0}
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2100000, guid: b89de5151fefea247980963452783c5f, type: 2}
+      objectReference: {fileID: 2100000, guid: c9e2cc4e65c4b6d48b533c0410c2f11a, type: 2}
     - target: {fileID: 6704927069803653603, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b89de5151fefea247980963452783c5f, type: 2}
+      objectReference: {fileID: 2100000, guid: c9e2cc4e65c4b6d48b533c0410c2f11a, type: 2}
     - target: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_Name
@@ -121,6 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5755528491929644243 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4203519938223495375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7447063420464623913 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
@@ -139,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a903345cdbd43438237ece12e106de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 7447063420464623913}
   cardName: Wolf
   cardType: 3
   healthVal: 3
@@ -146,3 +153,12 @@ MonoBehaviour:
   healthText: {fileID: 3501202931064486417}
   attackText: {fileID: 4365138617885303518}
   cardTitle: {fileID: 4325705446820427920}
+  destroyPoint: {fileID: 5755528491929644243}
+  moveSpeed: 10
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0

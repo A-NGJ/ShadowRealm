@@ -10,14 +10,16 @@ public class DrawCardOnValidate : MonoBehaviour
 
     public Transform spawnPoint;
     public float bounceForce = 10;
+    public int drawLimit = 2;
+    public int drawCount = 0;
     public Card.CardType cardType;
     public CardManager cardManager;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         XRSimpleInteractable interactable = GetComponent<XRSimpleInteractable>();
-        //interactable.activated.AddListener(DrawCard);
         interactable.selectEntered.AddListener(SpawnCard);
     }
 
@@ -29,10 +31,20 @@ public class DrawCardOnValidate : MonoBehaviour
 
     public void SpawnCard(SelectEnterEventArgs arg)
     {
-        GameObject card = cardManager.DrawCard();
-        GameObject spawnedCard = Instantiate(card);
-        spawnedCard.transform.position = spawnPoint.position;
-        spawnedCard.GetComponent<Rigidbody>().AddForce(spawnPoint.up * bounceForce);
+        if (gameManager.player.isCardDrawn == false)
+        {
+            drawCount += 1;
+            GameObject card = cardManager.DrawCard();
+            GameObject spawnedCard = Instantiate(card);
+            spawnedCard.transform.position = spawnPoint.position;
+            spawnedCard.GetComponent<Rigidbody>().AddForce(spawnPoint.up * bounceForce);
+            if (drawCount >= drawLimit)
+            {
+                gameManager.player.isCardDrawn = true;
+                drawCount = 0;
+            }
+            
+        }
     }
 
 }

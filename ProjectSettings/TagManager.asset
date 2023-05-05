@@ -11,6 +11,7 @@ TagManager:
   - opponent-placeholder
   - Hand-placeholder
   - Card
+  - sacrifice-placeholder
   layers:
   - Default
   - TransparentFX

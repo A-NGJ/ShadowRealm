@@ -66,7 +66,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2100000, guid: f1712e34a4af0954c91c4796277ac143, type: 2}
+      objectReference: {fileID: 2100000, guid: b9118fff483767c4592a2dbcb3e836c8, type: 2}
     - target: {fileID: 6704927069803653603, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1712e34a4af0954c91c4796277ac143, type: 2}
+      objectReference: {fileID: 2100000, guid: b9118fff483767c4592a2dbcb3e836c8, type: 2}
     - target: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_Name
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7444e2d5ba5910f4291bea67499ac9d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 4729638336538265052}
   cardName: Snake
   cardType: 2
   healthVal: 3
@@ -146,3 +147,18 @@ MonoBehaviour:
   healthText: {fileID: 1615807377096838884}
   attackText: {fileID: 1904551818056373803}
   cardTitle: {fileID: 1944916861934341221}
+  destroyPoint: {fileID: 7576737998451808294}
+  moveSpeed: 10
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
+--- !u!4 &7576737998451808294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2067049594107391034}
+  m_PrefabAsset: {fileID: 0}

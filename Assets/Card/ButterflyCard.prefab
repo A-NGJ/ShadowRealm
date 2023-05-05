@@ -66,7 +66,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2100000, guid: a9cda93c2574f6e4c860babe57057daf, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f4c49b20604b7d46a2114d219f00ff4, type: 2}
     - target: {fileID: 6704927069803653603, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9cda93c2574f6e4c860babe57057daf, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f4c49b20604b7d46a2114d219f00ff4, type: 2}
     - target: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_Name
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2329dce6df316bb4c9052231ab6d45e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 4759012325917525243}
   cardName: Butterfly
   cardType: 0
   healthVal: 2
@@ -146,3 +147,18 @@ MonoBehaviour:
   healthText: {fileID: 1568630644080889795}
   attackText: {fileID: 1857232045457594124}
   cardTitle: {fileID: 1825610320373632322}
+  destroyPoint: {fileID: 7677967134425045249}
+  moveSpeed: 10
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
+--- !u!4 &7677967134425045249 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2235975480480705821}
+  m_PrefabAsset: {fileID: 0}

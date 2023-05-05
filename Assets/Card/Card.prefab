@@ -409,6 +409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1007689015447022420}
+  - {fileID: 8469680694087283740}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -440,7 +441,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f980b896d25b542b95666c33eb84b1, type: 2}
+  - {fileID: 2100000, guid: c8e0efe2ab1b4e542901d753c32d8267, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,7 +551,7 @@ MonoBehaviour:
         m_MethodName: set_material
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2100000, guid: 03f980b896d25b542b95666c33eb84b1,
+          m_ObjectArgument: {fileID: 2100000, guid: c8e0efe2ab1b4e542901d753c32d8267,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
           m_IntArgument: 0
@@ -664,6 +665,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e27e7bfe575f7643b95ae88c492ca6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  cardplayed: 0
+  moveSpeed: 5
   gripAnimationAction_left:
     m_UseReference: 1
     m_Action:
@@ -719,6 +723,9 @@ MonoBehaviour:
   placeHolderPosition: {x: 0, y: 0, z: 0}
   opponentPlaceHolderPosition: {x: 0, y: 0, z: 0}
   HandPlaceHolderPosition: {x: 0, y: 0, z: 0}
+  playerSacrificePilePosition: {x: 0, y: 0, z: 0}
+  grabInteractable: {fileID: 0}
+  card: {fileID: -9149188265440113124}
 --- !u!114 &-9149188265440113124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7e55f858be2f244a8cc20dae8cd369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 6704927069803653606}
   cardName: 
   cardType: 0
   healthVal: 0
@@ -738,6 +746,16 @@ MonoBehaviour:
   healthText: {fileID: 775501600636723934}
   attackText: {fileID: 486935693213432337}
   cardTitle: {fileID: 455454221913907295}
+  destroyPoint: {fileID: 8469680694087283740}
+  moveSpeed: 10
+  destroyDelay: 2
+  bounceForce: 100
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
 --- !u!1 &6795599814372968668
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,3 +891,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8512030923698128882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8469680694087283740}
+  m_Layer: 0
+  m_Name: destroyPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8469680694087283740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8512030923698128882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 500, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6704927069803653602}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.0056748
       objectReference: {fileID: 0}
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.949
       objectReference: {fileID: 0}
     - target: {fileID: 6704927069803653602, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_HoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 2100000, guid: bdba6a9fb7da12f4cbefabe915158846, type: 2}
+      objectReference: {fileID: 2100000, guid: 8cf90246ec36df046970cef30a54bfa6, type: 2}
     - target: {fileID: 6704927069803653603, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bdba6a9fb7da12f4cbefabe915158846, type: 2}
+      objectReference: {fileID: 2100000, guid: 8cf90246ec36df046970cef30a54bfa6, type: 2}
     - target: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f,
         type: 3}
       propertyPath: m_Name
@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eec5fad20c6e2a44a56931d4eb64336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 566157876566406927}
   cardName: Hare
   cardType: 1
   healthVal: 1
@@ -110,6 +111,21 @@ MonoBehaviour:
   healthText: {fileID: 5770492844975946807}
   attackText: {fileID: 6635556372693542136}
   cardTitle: {fileID: 6666966821346410166}
+  destroyPoint: {fileID: 3413046288080825077}
+  moveSpeed: 10
+  bounceForce: 20
+  isSummoned: 0
+  hasAttacked: 0
+  isSacrificed: 0
+  isPoisoned: 0
+  isBuffed: 0
+  isHibernating: 0
+--- !u!4 &3413046288080825077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469680694087283740, guid: 9a38cabc47401f447b22b64a61cde27f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6545922906466787049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5770492844975946807 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 775501600636723934, guid: 9a38cabc47401f447b22b64a61cde27f,
