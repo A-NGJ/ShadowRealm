@@ -47,6 +47,10 @@ public class DrawCardOnValidate : MonoBehaviour
             if (GameObject.Find("DeckCanvas") != null){
                 Destroy (GameObject.Find ("DeckCanvas"));
             }
+
+            if (GameObject.Find("CanvasBell") != null){
+                Destroy (GameObject.Find ("CanvasBell"));
+            }
             
         }
     }
