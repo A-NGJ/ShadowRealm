@@ -409,6 +409,8 @@ public class GameManager : MonoBehaviour
                 {
                     Card playerCard = playerCards[i].GetComponent<Card>();
                     Card opponentCard = opponentCards[i].GetComponent<Card>();
+                    playerCard.AttackSound(); 
+                    opponentCard.AttackSound();
                     playerCard.healthVal -= opponentCard.attackVal;
                     opponentCard.healthVal -= playerCard.attackVal;
                     if (playerCard.healthVal <= 0)
@@ -437,12 +439,14 @@ public class GameManager : MonoBehaviour
                 else if (playerCards[i] != null && opponentCards[i] == null)
                 {
                     Card playerCard = playerCards[i].GetComponent<Card>();
+                    playerCard.AttackSound();
                     opponent.health -= playerCard.attackVal;
                     opponent.setHealth(opponent.health);
                 }
                 else if (playerCards[i] == null && opponentCards[i] != null)
                 {
                     Card opponentCard = opponentCards[i].GetComponent<Card>();
+                    opponentCard.AttackSound();
                     player.health -= opponentCard.attackVal;
                     player.setHealth(player.health);
                 }

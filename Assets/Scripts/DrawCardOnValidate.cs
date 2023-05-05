@@ -15,6 +15,7 @@ public class DrawCardOnValidate : MonoBehaviour
     public Card.CardType cardType;
     public CardManager cardManager;
     public GameManager gameManager;
+    public AudioSource drawCardSound;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class DrawCardOnValidate : MonoBehaviour
         {
             drawCount += 1;
             GameObject card = cardManager.DrawCard();
+            drawCardSound.Play();
             GameObject spawnedCard = Instantiate(card);
             spawnedCard.transform.position = spawnPoint.position;
             spawnedCard.GetComponent<Rigidbody>().AddForce(spawnPoint.up * bounceForce);

@@ -25,6 +25,8 @@ public class Card : MonoBehaviour
     public Transform destroyPoint;
     public float moveSpeed;
 
+    private AudioSource attackSound;
+
     // flag values for game logic
     public bool isSummoned = false;
     public bool hasAttacked = false;
@@ -38,6 +40,7 @@ public class Card : MonoBehaviour
         healthText.text = string.Format("H: {0}", healthVal);
         attackText.text = string.Format("A: {0}", attackVal);
         cardTitle.text = cardName;
+        attackSound = GameObject.Find("AudioAttack").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -54,5 +57,9 @@ public class Card : MonoBehaviour
         Destroy(parent, 2f);
         transform.position = Vector3.MoveTowards(transform.position, destroyPoint.position, moveSpeed * Time.deltaTime);
         Debug.Log("Card deleted");
+    }
+
+    public void AttackSound(){
+        attackSound.Play();
     }
 }

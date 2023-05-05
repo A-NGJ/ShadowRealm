@@ -70,9 +70,5 @@ public class CardHolder : MonoBehaviour
         }
     }
 
-    public void PlaySound()
-    {
-        cardSound.Play();
-    }
 }
 
