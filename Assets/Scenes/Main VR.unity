@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012264115, g: 0.029933793, b: 0.043406725, a: 1}
+  m_IndirectSpecularColor: {r: 0.012162264, g: 0.02985223, b: 0.043195985, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,7 +542,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Press grip\n botton"
+  m_text: 'Press grip
+
+    button'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1179c42e34fb02645a14105ad6220573, type: 2}
   m_sharedMaterial: {fileID: 960248995197149744, guid: 1179c42e34fb02645a14105ad6220573,
@@ -3171,6 +3173,7 @@ MonoBehaviour:
   opponentSacrificeText: {fileID: 0}
   playerSacrifice: 0
   opponentSacrifice: 0
+  cardDeck: {fileID: 1042200144}
 --- !u!4 &680709621
 Transform:
   m_ObjectHideFlags: 0

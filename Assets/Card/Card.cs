@@ -25,9 +25,6 @@ public class Card : MonoBehaviour
     public Transform destroyPoint;
     public float moveSpeed;
 
-    public float destroyDelay;
-    public int bounceForce;
-
     // flag values for game logic
     public bool isSummoned = false;
     public bool hasAttacked = false;
@@ -51,8 +48,11 @@ public class Card : MonoBehaviour
 
     public void Delete()
     {
+        Destroy(GetComponent<CardBehaviour>());
+        GetComponent<Rigidbody>().useGravity = false;
         //GetComponentInParent<Rigidbody>().AddForce(transform.up * bounceForce);
-        Destroy(parent);
+        Destroy(parent, 2f);
+        transform.position = Vector3.MoveTowards(transform.position, destroyPoint.position, moveSpeed * Time.deltaTime);
         Debug.Log("Card deleted");
     }
 }

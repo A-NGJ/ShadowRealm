@@ -726,7 +726,7 @@ MonoBehaviour:
   playerSacrificePilePosition: {x: 0, y: 0, z: 0}
   grabInteractable: {fileID: 0}
   placehand: 0
-  cardholder: {fileID: 0}
+  hasCard: 0
 --- !u!114 &-9149188265440113124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,9 +748,7 @@ MonoBehaviour:
   attackText: {fileID: 486935693213432337}
   cardTitle: {fileID: 455454221913907295}
   destroyPoint: {fileID: 8469680694087283740}
-  moveSpeed: 10
-  destroyDelay: 2
-  bounceForce: 100
+  moveSpeed: 2
   isSummoned: 0
   hasAttacked: 0
   isSacrificed: 0
@@ -916,7 +914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8512030923698128882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 500, z: 0}
+  m_LocalPosition: {x: 0, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
