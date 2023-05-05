@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.012162264, g: 0.02985223, b: 0.043195985, a: 1}
+  m_IndirectSpecularColor: {r: 0.012264115, g: 0.029933793, b: 0.043406725, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,7 +542,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press grip
+  m_text: 'Press trigger
 
     button'
   m_isRightToLeft: 0
