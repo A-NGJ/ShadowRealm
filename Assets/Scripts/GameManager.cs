@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     public Actor player;
     public Actor opponent;
     public GameObject cardDeck;
+    public AudioSource bellSound;
     
     private bool hasAttackedThisTurn = false;
     private bool opponentCardsDistributed = false;
@@ -254,6 +255,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.PlayerTurn;
         // set the text to "Player's turn"
         gameText.text = "Player's turn";
+        bellSound.Play();
         gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, gameText.rectTransform.anchoredPosition.y);
     }
 
@@ -328,7 +330,6 @@ public class GameManager : MonoBehaviour
                     // Place the card on the free placeholder
                     card.transform.SetParent(placeholder.transform);
                     card.transform.localPosition = Vector3.zero;
-                    oppCardHolder.hasCard = true;
                 }
             }
         }
@@ -408,6 +409,8 @@ public class GameManager : MonoBehaviour
                 {
                     Card playerCard = playerCards[i].GetComponent<Card>();
                     Card opponentCard = opponentCards[i].GetComponent<Card>();
+                    playerCard.AttackSound(); 
+                    opponentCard.AttackSound();
                     playerCard.healthVal -= opponentCard.attackVal;
                     opponentCard.healthVal -= playerCard.attackVal;
                     if (playerCard.healthVal <= 0)
@@ -436,12 +439,14 @@ public class GameManager : MonoBehaviour
                 else if (playerCards[i] != null && opponentCards[i] == null)
                 {
                     Card playerCard = playerCards[i].GetComponent<Card>();
+                    playerCard.AttackSound();
                     opponent.health -= playerCard.attackVal;
                     opponent.setHealth(opponent.health);
                 }
                 else if (playerCards[i] == null && opponentCards[i] != null)
                 {
                     Card opponentCard = opponentCards[i].GetComponent<Card>();
+                    opponentCard.AttackSound();
                     player.health -= opponentCard.attackVal;
                     player.setHealth(player.health);
                 }

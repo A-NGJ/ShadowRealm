@@ -14,13 +14,16 @@ public class CardHolder : MonoBehaviour
     public InputActionProperty pinchAnimationAction_right;
     public bool hasCard = false;
     public GameObject heldCard;
+    private AudioSource cardSound;
     //public CardBehaviour card = null;
 
     private bool isHoldingButton = false;
 
     void Start()
     {
-        
+       // get the audio source from the child
+         cardSound = GetComponentInChildren<AudioSource>(); 
+         Debug.Log(cardSound);
     }
 
     // Update is called once per frame
@@ -44,25 +47,26 @@ public class CardHolder : MonoBehaviour
     {
         // Debug.Log("Is staying the object" + other.gameObject.tag);
         //Debug.Log("Something is colliding with the Placeholder" + other.gameObject.tag);
-        if (other.gameObject.CompareTag("Card") && !isHoldingButton) // && card == null
+        if (other.gameObject.CompareTag("Card") && !isHoldingButton && !hasCard) // && card == null
         {   
             
             // Debug.Log(this.gameObject.name +" has a Card");
             hasCard = true;
             heldCard = other.gameObject;
+            cardSound.Play();
             //   card = other.gameObject.GetComponent<CardBehaviour>();
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Card") && !isHoldingButton) // && other.gameObject.GetComponent<CardBehaviour>()==card
+        if (other.gameObject.CompareTag("Card") && !isHoldingButton && hasCard) // && other.gameObject.GetComponent<CardBehaviour>()==card
         {
             Debug.Log("Placeholder does not have a card anymore");
             //   card = null; 
             hasCard = false;
             heldCard = null;
-
+            cardSound.Play();
         }
     }
 
