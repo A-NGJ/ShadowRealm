@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!73398921 &24547007
 VFXRenderer:
   serializedVersion: 1
@@ -218,7 +218,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 24547006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1683,7 +1683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &159510261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2898,14 +2898,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 6704927069803653606, guid: 9a38cabc47401f447b22b64a61cde27f, type: 3}
-  butterflyCard: {fileID: 4759012325917525243, guid: c73ceaf1af8d3b248ab498396b2662f6,
+  butterflyCard: {fileID: 7000643346056907125, guid: 5a676b512d512c440b9802c2f58c6053,
     type: 3}
-  hareCard: {fileID: 566157876566406927, guid: 6ba498db72fd5cc48b7679a325ab4fec, type: 3}
-  snakeCard: {fileID: 4729638336538265052, guid: 08d446eaa0d2cc64a82bf69ca35dd2a1,
+  frogCard: {fileID: 4452846155920681667, guid: 5048ba45a467e12408a7ad0e1c8b158f,
     type: 3}
-  wolfCard: {fileID: 7447063420464623913, guid: 12246d01205f0ac4983858f3f5d97b71,
+  snakeCard: {fileID: 1696217777085745558, guid: 00bd6733c92586a44bbd6d9b0b8de675,
     type: 3}
-  bearCard: {fileID: 4006416002875569089, guid: baf03fc491c7aa545b3f60eecaba31cd,
+  turtleCard: {fileID: 8344072085380657167, guid: 354bdbcedcc319543a38fe784ee43b76,
     type: 3}
 --- !u!4 &419120012 stripped
 Transform:
@@ -3240,7 +3239,7 @@ GameObject:
   - component: {fileID: 656739135}
   - component: {fileID: 656739136}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: BellSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3444,7 +3443,6 @@ MonoBehaviour:
   cardManager: {fileID: 418222350}
   playerPlaceholders: []
   opponentPlaceholders: []
-  playerSacrificePile: {fileID: 0}
   gameText: {fileID: 1222188232}
   playerHealthText: {fileID: 1367787482}
   opponentHealthText: {fileID: 1460911330}
@@ -3452,10 +3450,8 @@ MonoBehaviour:
   opponentHealth: 15
   playerSacrificeText: {fileID: 0}
   opponentSacrificeText: {fileID: 0}
-  playerSacrifice: 0
-  opponentSacrifice: 0
   cardDeck: {fileID: 1042200144}
-  bellSound: {fileID: 0}
+  bellSound: {fileID: 656739136}
 --- !u!4 &680709621
 Transform:
   m_ObjectHideFlags: 0
@@ -4618,7 +4614,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: aec2fa229c14847bbb4b83daf5d22fa3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 529d02a715c3c49ea84dee01b6b9ebfa, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -5312,7 +5308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146213158
 Transform:
   m_ObjectHideFlags: 0

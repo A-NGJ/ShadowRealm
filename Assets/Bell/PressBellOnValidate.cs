@@ -22,5 +22,10 @@ public class PressBellOnValidate : MonoBehaviour
     public void PressBell(SelectEnterEventArgs arg)
     {
         GetComponent<Rigidbody>().AddForce(-1 * transform.up * pushForce);
+
+        if (GameObject.Find("CanvasBell") != null)
+        {
+            Destroy(GameObject.Find("CanvasBell"));
+        }
     }
 }
