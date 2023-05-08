@@ -27,7 +27,6 @@ public class CardBehaviour : MonoBehaviour
     public XRGrabInteractable grabInteractable;
     public bool placehand = false;
     public bool hasCard = false;
-    private GameObject cardDeck;
     private AudioSource cardSound;
 
     // Start is called before the first frame update
@@ -35,7 +34,6 @@ public class CardBehaviour : MonoBehaviour
     {
         originalPosition = transform.position;
         grabInteractable = GetComponent<XRGrabInteractable>();
-        //cardDeck = GameObject.Find("CardDeck");
         cardSound = GameObject.Find("AudioDrawCard").GetComponent<AudioSource>();
     }
 
@@ -113,7 +111,7 @@ public class CardBehaviour : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        cardSound.Play();
+        //cardSound.Play();
         // If the user is pressing the button and there's a collision between hand and object, then the card must be held
         if (other.gameObject.CompareTag("Card-placeholder") && isHoldingButton)
         {

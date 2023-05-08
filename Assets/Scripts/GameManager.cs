@@ -295,7 +295,7 @@ public class GameManager : MonoBehaviour
     public void LoseGame()
     {
         gameState = GameState.Lost;
-        gameText.text = "Game over";
+        gameText.text = "Game over!";
         //gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
     }
 

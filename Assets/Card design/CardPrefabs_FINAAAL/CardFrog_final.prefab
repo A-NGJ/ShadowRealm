@@ -427,8 +427,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1179c42e34fb02645a14105ad6220573, type: 2}
-  m_sharedMaterial: {fileID: 960248995197149744, guid: 1179c42e34fb02645a14105ad6220573,
+  m_fontAsset: {fileID: 11400000, guid: f750366134dca914c8a34e7fa5e3f3b7, type: 2}
+  m_sharedMaterial: {fileID: 2611157674090769535, guid: f750366134dca914c8a34e7fa5e3f3b7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -453,8 +453,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -563,8 +563,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Frog
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1179c42e34fb02645a14105ad6220573, type: 2}
-  m_sharedMaterial: {fileID: 960248995197149744, guid: 1179c42e34fb02645a14105ad6220573,
+  m_fontAsset: {fileID: 11400000, guid: f750366134dca914c8a34e7fa5e3f3b7, type: 2}
+  m_sharedMaterial: {fileID: 2611157674090769535, guid: f750366134dca914c8a34e7fa5e3f3b7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 8
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 6874009165180874390}
   m_Layer: 0
   m_Name: CardFrog_final
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1180,8 +1180,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1179c42e34fb02645a14105ad6220573, type: 2}
-  m_sharedMaterial: {fileID: 960248995197149744, guid: 1179c42e34fb02645a14105ad6220573,
+  m_fontAsset: {fileID: 11400000, guid: f750366134dca914c8a34e7fa5e3f3b7, type: 2}
+  m_sharedMaterial: {fileID: 2611157674090769535, guid: f750366134dca914c8a34e7fa5e3f3b7,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1206,8 +1206,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
