@@ -10,7 +10,7 @@ public class CardManager : MonoBehaviour
     public GameObject snakeCard;
     public GameObject turtleCard;
 
-    public const float butterflyCardThreshold = 0.35f;
+    public const float butterflyCardThreshold = 0.30f;
     public const float frogCardThreshold = 0.6f;
     public const float snakeCardThreshold = 0.85f;
     public const float turtleCardThreshold = 1f;
