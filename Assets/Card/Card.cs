@@ -8,10 +8,9 @@ public class Card : MonoBehaviour
     public enum CardType
     {
         Butterfly,
-        Hare,
+        Frog,
         Snake,
-        Wolf,
-        Bear,
+        Turtle,
     }
 
     public GameObject parent;
@@ -30,23 +29,23 @@ public class Card : MonoBehaviour
     // flag values for game logic
     public bool isSummoned = false;
     public bool hasAttacked = false;
-    public bool isSacrificed = false;
-    public bool isPoisoned = false;
-    public bool isBuffed = false;
-    public bool isHibernating = false;
+    //public bool isSacrificed = false;
+    //public bool isPoisoned = false;
+    //public bool isBuffed = false;
+    //public bool isHibernating = false;
 
     void Start()
     {
-        healthText.text = string.Format("H: {0}", healthVal);
-        attackText.text = string.Format("A: {0}", attackVal);
+        healthText.text = string.Format("{0}", healthVal);
+        attackText.text = string.Format("{0}", attackVal);
         cardTitle.text = cardName;
         attackSound = GameObject.Find("AudioAttack").GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        healthText.text = string.Format("H: {0}", healthVal);
-        attackText.text = string.Format("A: {0}", attackVal);
+        healthText.text = string.Format("{0}", healthVal);
+        attackText.text = string.Format("{0}", attackVal);
     }
 
     public void Delete()

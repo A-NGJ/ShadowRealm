@@ -8,7 +8,7 @@ public class SnakeCard : Card
     {
         cardName = "Snake";
         cardType = CardType.Snake;
-        healthVal = 3;
-        attackVal = 1;
+        healthVal = 1;
+        attackVal = 3;
     }
 }

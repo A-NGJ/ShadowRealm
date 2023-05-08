@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     public CardManager cardManager;
     public List<GameObject> playerPlaceholders;
     public List<GameObject> opponentPlaceholders;
-    public GameObject playerSacrificePile;
+    //public GameObject playerSacrificePile;
     // define a variable to hold the text object
     public TextMeshProUGUI gameText;
     public TextMeshProUGUI playerHealthText;
@@ -74,8 +74,8 @@ public class GameManager : MonoBehaviour
     public int opponentHealth = 15;
     public TextMeshProUGUI playerSacrificeText;
     public TextMeshProUGUI opponentSacrificeText;
-    public int playerSacrifice = 0;
-    public int opponentSacrifice = 0;
+    //public int playerSacrifice = 0;
+    //public int opponentSacrifice = 0;
     public Actor player;
     public Actor opponent;
     public GameObject cardDeck;
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
         opponent = new Actor();
         opponent.actorType = ActorType.Opponent;
         opponent.healthTextUGUI = opponentHealthText;
-        opponent.setHealthText("Enemies: {0}");
+        opponent.setHealthText("Enemy: {0}");
         opponent.setHealth(opponentHealth);
         // opponent.sacrificeTextUGUI = opponentSacrificeText;
         // opponent.setSacrificeText("Opponent Sacrifice: {0}");
@@ -256,7 +256,7 @@ public class GameManager : MonoBehaviour
         // set the text to "Player's turn"
         gameText.text = "Player's turn";
         bellSound.Play();
-        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, gameText.rectTransform.anchoredPosition.y);
+        //gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, gameText.rectTransform.anchoredPosition.y);
     }
 
     public void EndTurn()
@@ -295,22 +295,22 @@ public class GameManager : MonoBehaviour
     public void LoseGame()
     {
         gameState = GameState.Lost;
-        gameText.text = "Game over";
-        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
+        gameText.text = "Game over!";
+        //gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
     }
 
     void WinGame()
     {
         gameState = GameState.Won;
         gameText.text = "You won!";
-        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
+        //gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
     }
 
     void DrawGame()
     {
         gameState = GameState.Draw;
         gameText.text = "Draw!";
-        gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
+        //gameText.rectTransform.anchoredPosition = new Vector2(gameText.rectTransform.anchoredPosition.x, -231);
     }
 
     private void DistributeOpponentCards()

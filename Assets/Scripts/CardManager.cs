@@ -6,16 +6,14 @@ public class CardManager : MonoBehaviour
 {
     public GameObject card;
     public GameObject butterflyCard;
-    public GameObject hareCard;
+    public GameObject frogCard;
     public GameObject snakeCard;
-    public GameObject wolfCard;
-    public GameObject bearCard;
+    public GameObject turtleCard;
 
-    public const float butterflyCardThreshold = 0.2f;
-    public const float hareCardThreshold = 0.5f;
-    public const float snakeCardThreshold = 0.65f;
-    public const float wolfCardThreshold = 0.9f;
-    public const float bearCardThreshold = 1f;
+    public const float butterflyCardThreshold = 0.30f;
+    public const float frogCardThreshold = 0.6f;
+    public const float snakeCardThreshold = 0.85f;
+    public const float turtleCardThreshold = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -35,14 +33,12 @@ public class CardManager : MonoBehaviour
         {
             case < butterflyCardThreshold:
                 return butterflyCard;
-            case < hareCardThreshold:
-                return hareCard;
+            case < frogCardThreshold:
+                return frogCard;
             case < snakeCardThreshold:
                 return snakeCard;
-            case < wolfCardThreshold:
-                return wolfCard;
-            case <= bearCardThreshold:
-                return bearCard;
+            case < turtleCardThreshold:
+                return turtleCard;
             default:
                 return card;
         }

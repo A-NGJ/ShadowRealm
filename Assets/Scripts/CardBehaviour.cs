@@ -108,10 +108,10 @@ public class CardBehaviour : MonoBehaviour
         
     }
     
-
+    
     void OnTriggerEnter(Collider other)
     {
-        cardSound.Play();
+        //cardSound.Play();
         // If the user is pressing the button and there's a collision between hand and object, then the card must be held
         if (other.gameObject.CompareTag("Card-placeholder") && isHoldingButton)
         {
